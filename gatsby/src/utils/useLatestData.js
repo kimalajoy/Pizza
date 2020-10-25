@@ -46,7 +46,6 @@ export default function useLatestData() {
     })
       .then((res) => res.json())
       .then((res) => {
-        // TODO: checl for errors
         // set the data to state
         setHotSlices(res.data.StoreSettings.hotSlices);
         setSlicemasters(res.data.StoreSettings.slicemaster);
