@@ -19,8 +19,9 @@ const SlicemasterStyles = styled.div`
     height: 400px;
   }
   h2 {
-    transform: rotate(2deg);
+    transform: rotate(-2deg);
     text-align: center;
+    font-size: 4rem;
     margin-bottom: -2rem;
     position: relative;
     z-index: 2;
@@ -37,14 +38,14 @@ const SlicemasterStyles = styled.div`
   }
 `;
 
-export default function SliceMastersPage({ data, pageContext }) {
-  const slicemasters = data.sliceMasters.nodes;
+export default function SlicemastersPage({ data, pageContext }) {
+  const slicemasters = data.slicemasters.nodes;
   return (
     <>
-      <SEO title={`Slicemasters - Page${pageContext.currentPage || 1}`} />
+      <SEO title={`Slicemasters - Page ${pageContext.currentPage || 1}`} />
       <Pagination
         pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
-        totalCount={data.sliceMasters.totalCount}
+        totalCount={data.slicemasters.totalCount}
         currentPage={pageContext.currentPage || 1}
         skip={pageContext.skip}
         base="/slicemasters"
@@ -68,7 +69,7 @@ export default function SliceMastersPage({ data, pageContext }) {
 
 export const query = graphql`
   query($skip: Int = 0, $pageSize: Int = 2) {
-    sliceMasters: allSanityPerson(limit: $pageSize, skip: $skip) {
+    slicemasters: allSanityPerson(limit: $pageSize, skip: $skip) {
       totalCount
       nodes {
         name
