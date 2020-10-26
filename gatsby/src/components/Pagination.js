@@ -52,7 +52,7 @@ export default function Pagination({
         disabled={!hasPrevPage}
         to={`${base}/${prevPage}`}
       >
-        &#8592; Prev
+        <span className="word">&#8592; Prev</span>
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
@@ -68,7 +68,7 @@ export default function Pagination({
         disabled={!hasNextPage}
         to={`${base}/${nextPage}`}
       >
-        Next &#8594;
+        <span className="word">Next &#8594;</span>
       </Link>
     </PaginationStyles>
   );
