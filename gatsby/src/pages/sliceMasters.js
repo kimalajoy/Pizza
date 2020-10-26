@@ -40,11 +40,13 @@ const SlicemasterStyles = styled.div`
 
 export default function SlicemastersPage({ data, pageContext }) {
   const slicemasters = data.slicemasters.nodes;
+  const pageSize = Number.isNaN(Number(process.env.GATSBY_PAGE_SIZE)) ? 2 : Number(process.env.GATSBY_PAGE_SIZE);
+
   return (
     <>
       <SEO title={`Slicemasters - Page ${pageContext.currentPage || 1}`} />
       <Pagination
-        pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
+        pageSize={pageSize}
         totalCount={data.slicemasters.totalCount}
         currentPage={pageContext.currentPage || 1}
         skip={pageContext.skip}
